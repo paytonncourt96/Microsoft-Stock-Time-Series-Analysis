@@ -36,13 +36,13 @@ def decomposition():
     st.write("Multiplicative Decomposition")
     decomposition_mult = seasonal_decompose(microsoft_stock_weekly, model='multiplicative')
     fig, ax = plt.subplots(figsize=(10, 6))
-    decomposition_mult.plot(ax=ax)
+    decomposition_mult.plot()
     st.pyplot(fig)
 
     st.write("Additive Decomposition")
     decomposition_add = seasonal_decompose(microsoft_stock_weekly, model='additive')
     fig, ax = plt.subplots(figsize=(10, 6))
-    decomposition_add.plot(ax=ax)
+    decomposition_add.plot()
     st.pyplot(fig)
 
 
