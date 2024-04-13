@@ -52,32 +52,13 @@ def decomposition():
 
 
 def ts_plots():
-    microsoft_stock_weekly = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
-    microsoft_stock_weekly['Date'] = pd.to_datetime(microsoft_stock_weekly['Date'], format="%m/%d/%Y %H:%M:%S")
-    microsoft_stock_weekly.set_index('Date', inplace=True)
-    microsoft_stock_weekly = microsoft_stock_weekly['Close'].resample('W').mean()
-
-    msft_data_filled = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
-    msft_data_filled['Date'] = pd.to_datetime(msft_data_filled['Date'], format="%m/%d/%Y %H:%M:%S")
-    msft_data_filled = msft_data_filled.set_index('Date').asfreq('D')
-    msft_data_filled = msft_data_filled.reset_index()
+    st.title("Time Series Plot")
+    image_url = 'https://github.com/paytonncourt96/TimeSeries_Project/raw/main/Images/time_series1.png'
+    st.image(image_url,  width=600, use_column_width=False)
     
-    st.write("Time Series Plots")
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(microsoft_stock_weekly.index, microsoft_stock_weekly)
-    ax.set_xlabel('Date')
-    ax.set_ylabel('Close ($)')
-    ax.set_title('Weekly Time Series Plot of Microsoft Stock')
-    ax.grid(True)
-    st.pyplot(fig)
-
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax.scatter(msft_data_filled['Volume'], msft_data_filled['Close'], alpha=0.5)
-    ax.set_xlabel('Trading Volume')
-    ax.set_ylabel('Closing Price ($)')
-    ax.set_title('Scatter Plot of Trading Volume vs. Closing Price')
-    ax.grid(True)
-    st.pyplot(fig)
+    st.title("Scatter Plot")
+    image_url = 'https://github.com/paytonncourt96/TimeSeries_Project/raw/main/Images/scatter_plot.png'
+    st.image(image_url,  width=600, use_column_width=False)
 
 def forecasts():
     st.title("Linear Forecast")
