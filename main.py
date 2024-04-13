@@ -62,7 +62,7 @@ def ts_plots():
     
     st.write("Time Series Plots")
     fig, ax = plt.subplots(figsize=(10, 6))
-    ax.plot(microsoft_stock_weekly.index, microsoft_stock_weekly)  # Removed .values
+    ax.plot(microsoft_stock_weekly.index, microsoft_stock_weekly)
     ax.set_xlabel('Date')
     ax.set_ylabel('Close ($)')
     ax.set_title('Weekly Time Series Plot of Microsoft Stock')
