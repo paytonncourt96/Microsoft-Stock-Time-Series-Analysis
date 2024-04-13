@@ -33,7 +33,7 @@ def decomposition():
     microsoft_stock_weekly['Date'] = pd.to_datetime(microsoft_stock_weekly['Date'], format="%m/%d/%Y %H:%M:%S")
     microsoft_stock_weekly.set_index('Date', inplace=True)
     microsoft_stock_weekly = microsoft_stock_weekly['Close'].resample('W').mean()
-    st.write("Multiplicative Decomposition")
+    st.title("Multiplicative Decomposition")
     decomposition_mult = seasonal_decompose(microsoft_stock_weekly, model='multiplicative')
     st.write("Trend Component")
     st.line_chart(decomposition_mult.trend)
@@ -45,7 +45,7 @@ def decomposition():
     st.line_chart(decomposition_mult.resid)
 
 
-    st.write("Additive Decomposition")
+    st.title("Additive Decomposition")
     decomposition_add = seasonal_decompose(microsoft_stock_weekly, model='additive')
     st.write("Trend Component")
     st.line_chart(decomposition_add.trend)
