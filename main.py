@@ -28,7 +28,7 @@ def home_page():
     st.write("Group Members: Benson Gichinga, Courtney Payton, Sahil Adrakatti")
 
 
-def decomposition(microsoft_stock_weekly):
+def decomposition():
     st.write("Multiplicative Decomposition")
     decomposition_mult = seasonal_decompose(microsoft_stock_weekly, model='multiplicative')
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -42,7 +42,7 @@ def decomposition(microsoft_stock_weekly):
     st.pyplot(fig)
 
 
-def ts_plots(microsoft_stock_weekly, msft_data_filled):
+def ts_plots():
     st.write("Time Series Plots")
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.plot(microsoft_stock_weekly.index, microsoft_stock_weekly.values)
@@ -78,9 +78,9 @@ def main():
     if choice == "Home":
         home_page()
     elif choice == "Decompositions":
-        decomposition()
+        decomposition(microsoft_stock_weekly)
     elif choice == "Time Series Plots":
-        ts_plots()
+        ts_plots(microsoft_stock_weekly, msft_data_filled)
     elif choice == "Forecasts":
         forecasts()
 
