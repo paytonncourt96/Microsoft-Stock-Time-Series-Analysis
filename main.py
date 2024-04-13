@@ -36,13 +36,13 @@ def decomposition():
     st.write("Multiplicative Decomposition")
     decomposition_mult = seasonal_decompose(microsoft_stock_weekly, model='multiplicative')
     st.write("Trend Component")
-    st.line_chart(decomposition_result.trend)
+    st.line_chart(decomposition_mult.trend)
 
     st.write("Seasonal Component")
-    st.line_chart(decomposition_result.seasonal)
+    st.line_chart(decomposition_mult.seasonal)
 
     st.write("Residual Component")
-    st.line_chart(decomposition_result.resid)
+    st.line_chart(decomposition_mult.resid)
     fig, ax = plt.subplots(figsize=(10, 6))
     decomposition_mult.plot()
     st.pyplot(fig)
