@@ -20,7 +20,7 @@ microsoft_stock_weekly = microsoft_stock['Close'].resample('W').mean()
 
 msft_data_filled = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
 msft_data_filled['Date'] = pd.to_datetime(msft_data_filled['Date'], format="%m/%d/%Y %H:%M:%S")
-msft_data_filled = microsoft_stock.set_index('Date').asfreq('D')
+msft_data_filled = msft_data_filled.set_index('Date').asfreq('D')
 msft_data_filled = msft_data_filled.reset_index()
 
 def home_page():
