@@ -50,10 +50,10 @@ def decomposition():
 
 
 def ts_plots():
-    microsoft_stock = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
-    microsoft_stock['Date'] = pd.to_datetime(microsoft_stock['Date'], format="%m/%d/%Y %H:%M:%S")
-    microsoft_stock.set_index('Date', inplace=True)
-    microsoft_stock_weekly = microsoft_stock['Close'].resample('W').mean()
+    microsoft_stock_weekly = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
+    microsoft_stock_weekly['Date'] = pd.to_datetime(microsoft_stock_weekly['Date'], format="%m/%d/%Y %H:%M:%S")
+    microsoft_stock_weekly.set_index('Date', inplace=True)
+    microsoft_stock_weekly = microsoft_stock_weekly['Close'].resample('W').mean()
 
     msft_data_filled = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
     msft_data_filled['Date'] = pd.to_datetime(msft_data_filled['Date'], format="%m/%d/%Y %H:%M:%S")
