@@ -35,6 +35,14 @@ def decomposition():
     microsoft_stock_weekly = microsoft_stock_weekly['Close'].resample('W').mean()
     st.write("Multiplicative Decomposition")
     decomposition_mult = seasonal_decompose(microsoft_stock_weekly, model='multiplicative')
+    st.write("Trend Component")
+    st.line_chart(decomposition_result.trend)
+
+    st.write("Seasonal Component")
+    st.line_chart(decomposition_result.seasonal)
+
+    st.write("Residual Component")
+    st.line_chart(decomposition_result.resid)
     fig, ax = plt.subplots(figsize=(10, 6))
     decomposition_mult.plot()
     st.pyplot(fig)
