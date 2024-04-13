@@ -43,15 +43,18 @@ def decomposition():
 
     st.write("Residual Component")
     st.line_chart(decomposition_mult.resid)
-    fig, ax = plt.subplots(figsize=(10, 6))
-    decomposition_mult.plot()
-    st.pyplot(fig)
+
 
     st.write("Additive Decomposition")
     decomposition_add = seasonal_decompose(microsoft_stock_weekly, model='additive')
-    fig, ax = plt.subplots(figsize=(10, 6))
-    decomposition_add.plot()
-    st.pyplot(fig)
+    st.write("Trend Component")
+    st.line_chart(decomposition_add.trend)
+
+    st.write("Seasonal Component")
+    st.line_chart(decomposition_add.seasonal)
+
+    st.write("Residual Component")
+    st.line_chart(decomposition_add.resid)
 
 
 def ts_plots(microsoft_stock_weekly, msft_data_filled):
