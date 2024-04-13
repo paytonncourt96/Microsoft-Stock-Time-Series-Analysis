@@ -29,6 +29,10 @@ def home_page():
 
 
 def decomposition(microsoft_stock_weekly):
+    microsoft_stock_weekly = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
+    microsoft_stock_weekly['Date'] = pd.to_datetime(microsoft_stock_weekly['Date'], format="%m/%d/%Y %H:%M:%S")
+    microsoft_stock_weekly.set_index('Date', inplace=True)
+    microsoft_stock_weekly = microsoft_stock_weekly['Close'].resample('W').mean()
     st.write("Multiplicative Decomposition")
     decomposition_mult = seasonal_decompose(microsoft_stock_weekly, model='multiplicative')
     fig, ax = plt.subplots(figsize=(10, 6))
