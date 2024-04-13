@@ -79,11 +79,11 @@ def ts_plots():
 
 
 def forecasts():
-    st.write("Linear Forecast")
+    st.title("Linear Forecast")
     image_url = 'https://github.com/paytonncourt96/TimeSeries_Project/raw/main/Images/Linear_Forecast.png'
     st.image(image_url,  width=600, use_column_width=False)
 
-    st.write("Naive Forecast")
+    st.title("Naive Forecast")
     image_url = "https://github.com/paytonncourt96/TimeSeries_Project/raw/main/Images/Naive_Forecast.png"
     st.image(image_url,  width=550, use_column_width=False)
 
