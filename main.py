@@ -13,15 +13,7 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 path = 'https://github.com/paytonncourt96/TimeSeries_Project/tree/main/'
-microsoft_stock = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
-microsoft_stock['Date'] = pd.to_datetime(microsoft_stock['Date'], format="%m/%d/%Y %H:%M:%S")
-microsoft_stock.set_index('Date', inplace=True)
-microsoft_stock_weekly = microsoft_stock['Close'].resample('W').mean()
 
-msft_data_filled = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
-msft_data_filled['Date'] = pd.to_datetime(msft_data_filled['Date'], format="%m/%d/%Y %H:%M:%S")
-msft_data_filled = msft_data_filled.set_index('Date').asfreq('D')
-msft_data_filled = msft_data_filled.reset_index()
 
 def home_page():
     st.title("Microsoft Stock Prediction Based On Trading Patterns")
@@ -57,7 +49,17 @@ def decomposition():
     st.line_chart(decomposition_add.resid)
 
 
-def ts_plots(microsoft_stock_weekly, msft_data_filled):
+def ts_plots():
+    microsoft_stock = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
+    microsoft_stock['Date'] = pd.to_datetime(microsoft_stock['Date'], format="%m/%d/%Y %H:%M:%S")
+    microsoft_stock.set_index('Date', inplace=True)
+    microsoft_stock_weekly = microsoft_stock['Close'].resample('W').mean()
+
+    msft_data_filled = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
+    msft_data_filled['Date'] = pd.to_datetime(msft_data_filled['Date'], format="%m/%d/%Y %H:%M:%S")
+    msft_data_filled = msft_data_filled.set_index('Date').asfreq('D')
+    msft_data_filled = msft_data_filled.reset_index()
+    
     st.write("Time Series Plots")
     fig, ax = plt.subplots(figsize=(10, 6))
     ax.plot(microsoft_stock_weekly.index, microsoft_stock_weekly.values)
@@ -95,7 +97,7 @@ def main():
     elif choice == "Decompositions":
         decomposition()
     elif choice == "Time Series Plots":
-        ts_plots(microsoft_stock_weekly, msft_data_filled)
+        ts_plots()
     elif choice == "Forecasts":
         forecasts()
 
