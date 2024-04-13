@@ -28,7 +28,7 @@ def home_page():
     st.write("Group Members: Benson Gichinga, Courtney Payton, Sahil Adrakatti")
 
 
-def decomposition(microsoft_stock_weekly):
+def decomposition():
     microsoft_stock_weekly = pd.read_csv("https://raw.githubusercontent.com/paytonncourt96/TimeSeries_Project/main/Microsoft_Stock.csv")
     microsoft_stock_weekly['Date'] = pd.to_datetime(microsoft_stock_weekly['Date'], format="%m/%d/%Y %H:%M:%S")
     microsoft_stock_weekly.set_index('Date', inplace=True)
@@ -82,7 +82,7 @@ def main():
     if choice == "Home":
         home_page()
     elif choice == "Decompositions":
-        decomposition(microsoft_stock_weekly)
+        decomposition()
     elif choice == "Time Series Plots":
         ts_plots(microsoft_stock_weekly, msft_data_filled)
     elif choice == "Forecasts":
