@@ -1,4 +1,4 @@
-# TimeSeries_Project
+# Microsoft Stock Time Series Analysis
 Repository for Time Series Analysis Group project 
 
 Members:
