@@ -17,7 +17,6 @@ path = 'https://github.com/paytonncourt96/TimeSeries_Project/tree/main/'
 
 def home_page():
     st.title("Microsoft Stock Prediction Based On Trading Patterns")
-    st.write("Group Members: Benson Gichinga, Courtney Payton, Sahil Adrakatti")
     image_url = 'https://github.com/paytonncourt96/TimeSeries_Project/raw/main/Images/Microsoft_logo.png'
     st.image(image_url,  width=600, use_column_width=False)
 
